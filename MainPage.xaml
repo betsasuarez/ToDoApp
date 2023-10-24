@@ -4,38 +4,39 @@
              x:Class="ToDoApp.MainPage">
 
     <ScrollView>
-        <VerticalStackLayout
+        <StackLayout
             Spacing="25"
+            Background="Black"
             Padding="30,0"
             VerticalOptions="Center">
 
             <Image
                 Source="dotnet_bot.png"
+                Margin="0, 10"
+                Background="Yellow"
                 SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
+                HeightRequest="100"
                 HorizontalOptions="Center" />
 
-            <Label
-                Text="Hello, World!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
+            <StackLayout Orientation="Horizontal">
+                <Entry HorizontalOptions="StartAndExpand"
+                       WidthRequest="270"
+                       PlaceholderColor="Black" Placeholder="nueva tarea"/>
 
-            <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
-
-            <Button
+                <Button
                 x:Name="CounterBtn"
-                Text="Click me"
+                Text="Agregar"
                 SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Center" />
+ </StackLayout>
 
-        </VerticalStackLayout>
+            <StackLayout VerticalOptions="FillAndExpand">
+                <ListView
+                    BackgroundColor="White"/>
+            </StackLayout>
+        
+   </StackLayout>
     </ScrollView>
 
 </ContentPage>
