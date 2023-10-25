@@ -1,19 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ToDoApp.MainPage">
+             x:Class="ToDoApp.MainPage"
+             x:Name="MyMainPage"
+             BackgroundColor="#b9d6f2"> 
+             
 
     <ScrollView>
         <StackLayout
             Spacing="25"
-            Background="Black"
+            Background="Aquamarine" 
             Padding="30,0"
             VerticalOptions="Center">
 
+            <Label Padding="10"
+                   HorizontalOptions="Center"
+                   FontSize="22"
+                   BindingContext="{x:Reference Name=MyMainPage}"
+                   Text="{Binding MyTitle}" TextColor="Black"/> 
+
             <Image
-                Source="dotnet_bot.png"
-                Margin="0, 10"
-                Background="Yellow"                
+                Source="task.png"
+                Margin="0, 10"               
                 HeightRequest="100"
                 HorizontalOptions="Center" />
 
@@ -23,15 +31,16 @@
                        PlaceholderColor="Gray" Placeholder="nueva tarea"/>
                 
                 <Button
-                x:Name="CounterBtn"
-                Text="Agregar"                
-                HorizontalOptions="Center" />
+                    x:Name="AddBtn"
+                    Clicked="AddBnt_Clicked" 
+                    Text="Agregar"
+                    HorizontalOptions="Center" />
                 
             </StackLayout>
 
             <StackLayout VerticalOptions="FillAndExpand">
                 <ListView
-                    BackgroundColor="White"/>
+                    BackgroundColor="White"/>  
             </StackLayout>
         
    </StackLayout>
