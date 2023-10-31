@@ -29,7 +29,7 @@ namespace ToDoApp
             //CreateAndLoadTaks();
         }
 
-        private void AddBtn_Clicked(object sender, EventArgs e)
+        private void AddBnt_Clicked(object sender, EventArgs e)
         {
 
             //DisplayAlert("Alert", "Agregado", "OK");
