@@ -13,12 +13,23 @@
             Padding="30,0"
             VerticalOptions="Center">
 
-            <Label Padding="10"
-                   HorizontalOptions="Center"
-                   FontSize="22"
-                   BindingContext="{x:Reference Name=MyMainPage}"
-                   Text="{Binding MyTitle}" TextColor="Black"/> 
+            <Label x:Name="Tarea"
+          Padding="10"                    
+           HorizontalOptions="Center" 
+          FontSize="22"                    
+          Text="{Binding TaskName, Mode=TwoWay}" 
+          TextColor="{Binding ColorText, Converter = {StaticResource ColorConverter}}"/>
 
+
+            <Label x:Name="Estatus"
+              Padding="10"                    
+            HorizontalOptions="Center" 
+             FontSize="22"                    
+           Text="{Binding Status, Mode=TwoWay}" 
+           TextColor="{Binding ColorText, Converter = {StaticResource ColorConverter}}"/>
+            
+            
+          
             <Image
                 Source="task.png"
                 Margin="0, 10"               
