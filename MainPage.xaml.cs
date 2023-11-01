@@ -4,51 +4,36 @@ namespace ToDoApp
 {
     public partial class MainPage : ContentPage
     {
-        public ObservableCollection<Tasks> MyTasks { get; set; }
-        public Tasks MyTask { get; set; }
+        public Tasks Tarea { get; set; }
 
-        public MainPage()
-        {
-            InitializeComponent();
-            CreateOneTask();
-            BindingContext = MyTask;
-        }
+                public MainPage()
+                {
+                    InitializeComponent();
+                    CreateOneTask();
+                    BindingContext = Tarea;
+                }
 
-        private void CreateOneTask()
-        {
-            MyTask = new Tasks()
-            {
-                TaskName = "Tarea",
-                Status = "Pendiente",
-                ColorText = "Blue"
-            };
-        }
+                private void CreateOneTask()
+                {
+                    Tarea = new Tasks()
+                    {
+                        TaskName = "Comprar Pan",
+                        Status = "Pendiente",
+                        ColorText = "Blue"
+                    };
+                }
+
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            //CreateAndLoadTaks();
+
         }
 
-        private void AddBnt_Clicked(object sender, EventArgs e)
+        private void AddBtn_Clicked(object sender, EventArgs e)
         {
-
-            //DisplayAlert("Alert", "Agregado", "OK");
-
-            // source 
-            var MyNewTask = new Tasks()
-            {
-                TaskName = "Pagar ropa", //
-                Status = "Pendiente",
-                ColorText = "Red"
-            };
-
-            MyNewTask.TaskName = "Terminar Pago";
-            MyNewTask.Status = "Completado";
-
-
-
-            BindingContext = MyNewTask;
-
+            Tarea.TaskName = "Otra Tarea";
+            Tarea.Status = "Completa";
+            Tarea.ColorText = "Red";
         }
     }
 }

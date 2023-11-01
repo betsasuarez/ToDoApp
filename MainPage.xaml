@@ -3,58 +3,62 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ToDoApp.MainPage"
              x:Name="MyMainPage"
-             BackgroundColor="#b9d6f2"> 
-             
-
+             BackgroundColor="#b9d6f2">
+    
     <ScrollView>
         <StackLayout
-            Spacing="25"
-            Background="Aquamarine" 
+            Spacing="25"            
             Padding="30,0"
-            VerticalOptions="Center">
+            VerticalOptions="Start">
 
-            <Label x:Name="Tarea"
-          Padding="10"                    
-           HorizontalOptions="Center" 
-          FontSize="22"                    
-          Text="{Binding TaskName, Mode=TwoWay}" 
-          TextColor="{Binding ColorText, Converter = {StaticResource ColorConverter}}"/>
+            <Label Padding="10"                    
+                   HorizontalOptions="Center" 
+                   FontSize="22"                    
+                   Text="{Binding TaskName}"                    
+                   TextColor="{Binding ColorText, Converter = {StaticResource ColorConverter}}"/>
 
+            <Label Padding="10"                    
+                   HorizontalOptions="Center" 
+                   FontSize="22"                    
+                   Text="{Binding Status}" 
+                   TextColor="{Binding ColorText, Converter = {StaticResource ColorConverter}}"/>
 
-            <Label x:Name="Estatus"
-              Padding="10"                    
-            HorizontalOptions="Center" 
-             FontSize="22"                    
-           Text="{Binding Status, Mode=TwoWay}" 
-           TextColor="{Binding ColorText, Converter = {StaticResource ColorConverter}}"/>
-            
-            
-          
             <Image
-                Source="task.png"
-                Margin="0, 10"               
-                HeightRequest="100"
+                Source="task.png"  
+                HeightRequest="80"
+                Margin="0, 10"                
                 HorizontalOptions="Center" />
 
-            <StackLayout Orientation="Horizontal">
-                <Entry HorizontalOptions="StartAndExpand"
+            <StackLayout Orientation="Horizontal" VerticalOptions="Start">
+
+                <Entry HorizontalOptions="StartAndExpand" 
+                       TextColor="Black"
                        WidthRequest="270"
-                       PlaceholderColor="Gray" Placeholder="nueva tarea"/>
-                
+                       />
                 <Button
                     x:Name="AddBtn"
-                    Clicked="AddBnt_Clicked" 
-                    Text="Agregar"
-                    HorizontalOptions="Center" />
-                
+                    Clicked="AddBtn_Clicked"
+                    Padding="10, 10"
+                    Text="Agregar"/>
             </StackLayout>
 
             <StackLayout VerticalOptions="FillAndExpand">
-                <ListView
-                    BackgroundColor="White"/>  
+                <ListView 
+                    x:Name="TaskListView"
+                    BackgroundColor="Transparent"
+                    HasUnevenRows="True"
+                    BindingContext="{x:Reference Name=MyMainPage}"
+                    ItemsSource="{Binding MyT\asks}"
+                    CachingStrategy="RecycleElement">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell BindingContext="{x:Reference Name=MyMainPage}" Text="{Binding TaskName}" TextColor="Black"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </StackLayout>
-        
-   </StackLayout>
+
+        </StackLayout>
     </ScrollView>
 
 </ContentPage>
